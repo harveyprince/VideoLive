@@ -54,6 +54,7 @@
 
 	<bean id="TestAction" class="com.videolive.action.TestAction">
 	</bean>
+
 	
 	<!-- 定义 Autowired 自动注入 bean -->
 	<bean
