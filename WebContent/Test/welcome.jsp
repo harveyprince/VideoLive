@@ -141,5 +141,8 @@
 <script src="./dist/extra/jquery/jquery.min.js"></script>
 <script src="./dist/js/CommentCoreLibrary.js"></script>
 <script src="./dist/js/color_box.js"></script>
+<script type="text/javascript">
+	window.ws = new WebSocket("ws://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/websocket");
+</script>
 <script src="./dist/js/doc.js"></script>
 </html>

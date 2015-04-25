@@ -2,15 +2,20 @@
 	author:harveyprince
 */
 $(document).ready(function(){
-	window.ws = new WebSocket("ws://localhost:8080/VideoLive/websocket");
+	// window.ws = new WebSocket("ws://localhost:8080/VideoLive/websocket");
 	ws.onopen = function()
 	{
 		console.log("open");
-		ws.send("hello");
+		// ws.send("hello");
 	};
 	ws.onmessage = function(evt)
 	{
-		console.log(evt.data)
+		console.log(evt.data);
+		var content = evt.data;
+		var jsoncontent = JSON.parse(content);
+		if(jsoncontent.type==0){
+			CM.send(jsoncontent);
+		}
 	};
 	ws.onclose = function(evt)
 	{
@@ -188,10 +193,10 @@ $(".comment-send-button").click(function(){
 	    "mode":Number($(".danmaku-mode").attr('value')),
 	    "text":text,
 	    "size":Number($(".font-size").attr('value')),
-	    "color":window.colorbox.value
+	    "color":window.colorbox.value,
+	    "type":0
 	};
-	CM.send(someDanmakuAObj);
-	ws.send(text);
+	ws.send(JSON.stringify(someDanmakuAObj));
 	}
 	$(this).siblings("input").val("");
 });
