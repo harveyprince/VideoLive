@@ -9,6 +9,9 @@
 	<link rel="stylesheet" type="text/css" href="./dist/css/style.css">
 	<link rel="stylesheet" type="text/css" href="./dist/css/color_box.css">
 	<link rel="stylesheet" type="text/css" href="./dist/extra/font-awesome-4.2.0/css/font-awesome.min.css">
+	<!--[if IE]>
+	<script src="./dist/js/html5.js"></script>
+	<![endif]-->
 </head>
 <body>
 	<div class="H5Player">
