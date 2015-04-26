@@ -12,10 +12,10 @@ import javax.websocket.RemoteEndpoint.Basic;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import org.springframework.stereotype.Repository;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 @ServerEndpoint("/websocket")
-@Repository
 public class SocketAction extends BaseAction{
 
 	/**
@@ -31,7 +31,14 @@ public class SocketAction extends BaseAction{
 		for(Basic b:selist){
 			b.sendText(message);
 		}
-	   
+		 JSONObject js;
+		 try {
+				js = new JSONObject(message);
+				System.out.println(js.getString("type"));
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 	 
 	  @OnOpen
