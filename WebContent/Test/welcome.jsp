@@ -146,6 +146,10 @@
 <script src="./dist/js/color_box.js"></script>
 <script type="text/javascript">
 	window.ws = new WebSocket("ws://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/websocket");
+	var user = {
+		"icon":"./dist/img/1_head_1411982899118.jpeg",
+		"name":"harveyprince"
+	};
 </script>
 <script src="./dist/js/doc.js"></script>
 </html>

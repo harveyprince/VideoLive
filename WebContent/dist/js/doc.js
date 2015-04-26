@@ -14,7 +14,12 @@ $(document).ready(function(){
 		var content = evt.data;
 		var jsoncontent = JSON.parse(content);
 		if(jsoncontent.type==0){
+			// danmaku
 			CM.send(jsoncontent);
+			// comment panel
+			var jsonuser = jsoncontent.user;
+			var cb = new CommentBlock(jsonuser.icon,jsoncontent.text,false);
+			$(".HP-Comment-List").trigger("insert",cb);
 		}else if(jsoncontent.type==1){
 			switch(jsoncontent.opera){
 			case "play":
@@ -214,6 +219,7 @@ $(".comment-send-button").click(function(){
 	    "text":text,
 	    "size":Number($(".font-size").attr('value')),
 	    "color":window.colorbox.value,
+	    "user":user,
 	    "type":0
 	};
 	ws.send(JSON.stringify(someDanmakuAObj));
