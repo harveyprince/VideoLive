@@ -31,6 +31,12 @@ public class LiveServiceImpl implements LiveService {
 		}
 		return result;
 	}
+	
+	@Override
+	public String getLiveState() {
+		// TODO Auto-generated method stub
+		return videoState;
+	}
 
 	@Override
 	public void setPause(double time) {

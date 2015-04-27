@@ -8,6 +8,7 @@
           extends="struts-default">
           <action name="welcome" class="TestAction" method="welcome">
           	<result name="success">/Test/welcome.jsp</result>
+          	<result name="release">/Test/simpleRelease.jsp</result>
           </action>
           
       </package>
