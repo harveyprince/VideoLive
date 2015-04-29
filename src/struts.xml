@@ -10,6 +10,10 @@
           	<result name="success">/Test/welcome.jsp</result>
           	<result name="release">/Test/simpleRelease.jsp</result>
           </action>
+          <action name="track" class="TestAction" method="welcome">
+          <result name="release">/Test/trackTest.jsp</result>
+          	<!-- <result name="release">/dist/extra/Captionator-master/index.html</result> -->
+          </action>
           
       </package>
   </struts>

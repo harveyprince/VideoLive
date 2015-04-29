@@ -18,7 +18,7 @@
 		<div class="HP-Unit">
 			<div class="HP-Video">
 				<video autobuffer="true" id="video">
-					<source src="./dist/video/big_buck_bunny.mp4" type="video/mp4">
+					<source src="./dist/video/video.mp4" type="video/mp4">
 				</video>
 				<div class="danmaku-container abp">
 					<div id="danmaku-stage" class="container"></div>

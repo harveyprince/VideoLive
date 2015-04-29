@@ -19,7 +19,8 @@
 		<div class="HP-Unit">
 			<div class="HP-Video">
 				<video autobuffer="true" id="video">
-					<source src="./dist/video/big_buck_bunny.mp4" type="video/mp4">
+					<source src="./dist/video/video.mp4" type="video/mp4">
+					<track kind="captions" src="./dist/video/track.vtt" type="text/vtt" srclang="en" label="WebVTT Acid Test" default/>
 				</video>
 				<div class="danmaku-container abp">
 					<div id="danmaku-stage" class="container"></div>
@@ -138,6 +139,15 @@
 		"icon":"./dist/img/1_head_1411982899118.jpeg",
 		"name":""
 	};
+</script>
+<script type="text/javascript">
+window.addEventListener("load",function() {
+	captionator.captionify(null,null,{
+		debugMode: !!window.location.search.match(/debug/i),
+		sizeCuesByTextBoundingBox: !!window.location.search.match(/boundingBox/i),
+		enableHighResolution: !!window.location.search.match(/highres/i),
+	});
+},false);
 </script>
 <script src="./dist/js/docRelease.js"></script>
 </html>
