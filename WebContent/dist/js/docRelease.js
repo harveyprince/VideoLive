@@ -92,12 +92,6 @@ $(document).ready(function connectinit(){
 		$(".alarm-box").html("WebSocketError!");
 	};
 
-	setTimeout(function(){
-		var message = {
-			"type":5
-		}
-		ws.send(JSON.stringify(message));
-	},500);
 });
 
 $(".name-set").click(function(){
@@ -114,6 +108,13 @@ $(".name-set").click(function(){
 			ws.send(JSON.stringify(jsoncontent));
 			}
 	});
+
+$(".video-button.comment-group").click(function(){
+	var message = {
+			"type":5
+		}
+		ws.send(JSON.stringify(message));
+});
 /*
 	panel lockin and lockout
 */
@@ -240,6 +241,13 @@ $(document).ready(function(){
 			$(".progress-bar .bar .dark").css("width",((this.currentTime / this.duration) * 100) + "%");
 			$(".time-label").html(this.currentTime.timeformat()+"/"+this.duration.timeformat());
 		}
+		if(this.buffered!=null){
+			try{
+				var load_end = this.buffered.end(0);
+			}catch(e){return;}
+			var dur = this.duration;
+			$(".progress-bar .bar .load").css("width",((load_end / dur) * 100) + "%");
+		}
 	});
 	$("video").bind("ended",function(){
 		$(".progress-bar .bar .dark").css("width","0%");
@@ -252,6 +260,12 @@ $(document).ready(function(){
 			var dur = this.duration;
 			$(".progress-bar .bar .load").css("width",((load_end / dur) * 100) + "%");
 		}
+	});
+	$("video").bind("canplay",function(){
+		var message = {
+			"type":5
+		}
+		ws.send(JSON.stringify(message));
 	});
 	var dragging = false;
 	$(".progress-bar .bar").bind("mousedown",function(e){
