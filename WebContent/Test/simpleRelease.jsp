@@ -140,14 +140,5 @@
 		"name":""
 	};
 </script>
-<script type="text/javascript">
-window.addEventListener("load",function() {
-	captionator.captionify(null,null,{
-		debugMode: !!window.location.search.match(/debug/i),
-		sizeCuesByTextBoundingBox: !!window.location.search.match(/boundingBox/i),
-		enableHighResolution: !!window.location.search.match(/highres/i),
-	});
-},false);
-</script>
 <script src="./dist/js/docRelease.js"></script>
 </html>

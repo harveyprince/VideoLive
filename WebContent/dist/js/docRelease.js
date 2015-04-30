@@ -241,6 +241,11 @@ $(document).ready(function(){
 			$(".progress-bar .bar .dark").css("width",((this.currentTime / this.duration) * 100) + "%");
 			$(".time-label").html(this.currentTime.timeformat()+"/"+this.duration.timeformat());
 		}
+	});
+	$("video").bind("ended",function(){
+		$(".progress-bar .bar .dark").css("width","0%");
+	});
+	$("video").bind("loadedmetadata",function(){
 		if(this.buffered!=null){
 			try{
 				var load_end = this.buffered.end(0);
@@ -249,10 +254,7 @@ $(document).ready(function(){
 			$(".progress-bar .bar .load").css("width",((load_end / dur) * 100) + "%");
 		}
 	});
-	$("video").bind("ended",function(){
-		$(".progress-bar .bar .dark").css("width","0%");
-	});
-	$("video").bind("loadedmetadata",function(){
+	$("video").bind("progress",function(){
 		if(this.buffered!=null){
 			try{
 				var load_end = this.buffered.end(0);
