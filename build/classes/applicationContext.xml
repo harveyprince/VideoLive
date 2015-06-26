@@ -21,8 +21,8 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/videolive?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true" />
-		<property name="username" value="root" />
-		<property name="password" value="harveyprince" />
+		<property name="username" value="video" />
+		<property name="password" value="video" />
 	</bean>
 
 	<!-- 配置sessionFactory -->
